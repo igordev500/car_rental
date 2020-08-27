@@ -3,6 +3,7 @@ $(document).ready(function(){
         '/index.php/Create_ads/read',
         function(data){
            var park_val = JSON.parse(data);
+           if(park_val == null){return;}
            $('#Street').val(park_val.Street);     
            $('#Number').val(park_val.Number);     
            $('#Flat_house').val(park_val.Flat_house);     

@@ -1,4 +1,4 @@
-var nodata;
+var nodata,clk=1;
 $(document).ready(function(){
     $.post(
         '/index.php/Create_ads/read_step4',
@@ -15,31 +15,37 @@ $(document).ready(function(){
 
 
 function add_berth(){
-    var type_berth = $('#type_berth').val();
-    var width_berth = $('#width_berth').val();
-    var length_berth = $('#length_berth').val();
-    if(type_berth=='Select'){
-        $('#type_berth').focus();
-        toastr_call('info','please select type of berth!');
-        return;
-    }else if(width_berth==''){
-        $('#width_berth').focus();
-        toastr_call('info','Please input the width of berth!');return;
-    }else if(length_berth==''){
-        $('#length_berth').focus();
-        toastr_call('info','Please input the length of berth!');return;
-    }
-    $.post(
-        '/index.php/Create_ads/create_step4',
-        {
-            type_berth:type_berth,
-            width_berth:width_berth,
-            length_berth:length_berth
-        },
-        function(data){
-            location.reload('/');
+    if(clk==1){
+        clk=2;
+        var type_berth = $('#type_berth').val();
+        var width_berth = $('#width_berth').val();
+        var length_berth = $('#length_berth').val();
+        if(type_berth=='Select'){
+            $('#type_berth').focus();
+            toastr_call('info','please select type of berth!');
+            return;
+        }else if(width_berth==''){
+            $('#width_berth').focus();
+            toastr_call('info','Please input the width of berth!');return;
+        }else if(length_berth==''){
+            $('#length_berth').focus();
+            toastr_call('info','Please input the length of berth!');return;
         }
-    );
+        $.post(
+            '/index.php/Create_ads/create_step4',
+            {
+                type_berth:type_berth,
+                width_berth:width_berth,
+                length_berth:length_berth
+            },
+            function(data){
+                location.reload('/');
+            }
+        );
+    }else{
+        return;
+    }
+    
 }
 
 function del_berth(e){

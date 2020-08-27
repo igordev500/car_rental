@@ -16,6 +16,7 @@ $(document).ready(function(){
 })
 var cnt=1;
 var photo = [];
+var click =1;
 
 function addmorephoto(){
     if(cnt<15){
@@ -27,38 +28,43 @@ function addmorephoto(){
 }
 
 function to_step4(){
-    
-    for(var p=0;p<cnt;p++){
-        photo[p+1] = $('#photo'+(p+1)).val();
-    }
-    if(photo[1]==''){
-        toastr_call("info","Please put the image of your vehicle at least one!");
+    if(click == 1){
+        click = 2;
+        for(var p=0;p<cnt;p++){
+            photo[p+1] = $('#photo'+(p+1)).val();
+        }
+        if(photo[1]==''){
+            toastr_call("info","Please put the image of your vehicle at least one!");
+        }else{
+            for(var q=0;q<cnt;q++){
+                if(photo[q+1]==''){
+                    toastr_call("error","Please put selected images!");
+                    return;
+                }
+            }
+            
+            var formdata = new FormData();
+            formdata.append('cnt', cnt);
+
+            for(var e=1;e<=cnt;e++){
+                formdata.append('p_'+e, $('#photo'+e)[0].files[0]);
+            }
+
+            $.ajax({
+                url: '/index.php/Create_ads/create_step3',
+                type: 'POST',
+                processData: false,
+                contentType: false,
+                cache: false,
+                data: formdata,
+                success:function (data) {
+                    
+                    window.location.href = '/index.php/Create_ads/step4/';
+                }
+            });
+        }
     }else{
-        for(var q=0;q<cnt;q++){
-            if(photo[q+1]==''){
-                toastr_call("error","Please put selected images!");
-                return;
-            }
-        }
-        
-        var formdata = new FormData();
-        formdata.append('cnt', cnt);
-
-        for(var e=1;e<=cnt;e++){
-            formdata.append('p_'+e, $('#photo'+e)[0].files[0]);
-        }
-
-        $.ajax({
-            url: '/index.php/Create_ads/create_step3',
-            type: 'POST',
-            processData: false,
-            contentType: false,
-            cache: false,
-            data: formdata,
-            success:function (data) {
-                window.location.href = '/index.php/Create_ads/step4/';
-            }
-        });
+        return;
     }
     
     

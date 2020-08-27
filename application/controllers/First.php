@@ -231,6 +231,8 @@ class First extends CI_Controller
 
 		$val=$this->user_m->fileinfo_up($email,$data['driv_doc'],$data['identity']);
 
+		$this->session->set_userdata('email',$email);
+		
 		
 	}
 }

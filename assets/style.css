@@ -1535,4 +1535,48 @@ li {
 .form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
     display: none;   
 }
-  
+
+#user_avartar{
+    width:250px;height:250px;border:5px solid #EEE;
+}
+#user_avartar:hover{
+    cursor:pointer;
+}
+#user_pic_div{
+    text-align:center;margin-left:auto;margin-right:auto;
+    background-image: url('/uploads/user_pictures/avartar.png');
+    background-size: 250px 250px;
+    width:250px;
+    height:250px;
+}
+
+#user_picture{
+    width:100%;
+    height:100%;
+}
+
+#drive_doc_div{
+    width:250px;height:250px;background-image: url('/uploads/driving_license/doc.png');
+    background-size: 250px 250px;;border:solid 5px #EEE;
+}
+#identity_div{
+    width:250px;height:250px; background-image: url('/uploads/identity_cards/doc.png');
+    background-size: 250px 250px;;border:solid 5px #EEE;
+}
+#drive_doc_img{
+    width:100%;height:100%;
+}
+#identity_img{
+    width:100%;height:100%;
+}
+#drive_doc_div:hover{
+    cursor: pointer;
+    
+}
+#identity_div:hover{
+    cursor: pointer;
+   
+}
+.savebtn{
+    margin-left:auto;margin-right:auto;width:150px;margin-top:30px;margin-bottom:40px;
+}

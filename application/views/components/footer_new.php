@@ -35,4 +35,8 @@
     <script src="/assets/min/dropzone.min.js"></script>
     <script src="/assets/min/dropify/js/dropify.min.js"></script>
     <script src="/assets/min/form-fileuploads.init.js"></script>
+
+    <script src="/assets/dist/js/datepicker.min.js"></script>
+    <!-- Include English language -->
+    <script src="/assets/dist/js/i18n/datepicker.en.js"></script>
     

@@ -330,7 +330,7 @@
                         $('#rgbt1').css('display','none');
                         $('#rgbt2').css('display','block');
                         $('#fileupdiv').css('display','block');
-                        toastr_call("success","You should upload your driving license and Identity card to pdf or image.");
+                        toastr_call("success","1You should upload your driving license and Identity card to pdf or image.");
                     }else{
                         toastr_call("errors","System error!");
                     }
@@ -360,7 +360,13 @@
                     cache: false,
                     data: formdata,
                     success:function () {
+                        
                         toastr_call("success","Welcome to register successfully!");
+                        var delayInMilliseconds = 2000;
+               
+                        setTimeout(function() {
+                            window.location.href = '/';
+                        }, delayInMilliseconds);
                     }
                 });
             }

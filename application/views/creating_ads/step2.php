@@ -92,14 +92,14 @@
                             <label for="id_vehicle_length">Vehicle length *</label>
                             <div class="input-group">
                                 <input type="number" id="id_vehicle_length" name="id_vehicle_length" required="" max="20.0" min="0.0" step=".1" class="form-control">
-                                <span class="input-group-addon">metres</span>
+                                <span class="input-group-addon">meters</span>
                             </div>
                         </div>
                         <div class="col-xs-6">
                             <label for="id_vehicle_width">Vehicle width *</label>
                             <div class="input-group">
                                 <input type="number" id="id_vehicle_width" name="id_vehicle_width" required="" max="20.0" min="0.0" step=".1" class="form-control">
-                                <span class="input-group-addon">metres</span>
+                                <span class="input-group-addon">meters</span>
                             </div>
                         </div>
                     </div>
@@ -108,7 +108,7 @@
                             <label for="id_vehicle_height">Vehicle height *</label>
                             <div class="input-group">
                                 <input type="number" id="id_vehicle_height" name="id_vehicle_height" required="" max="20.0" min="0.0" step=".1" class="form-control">
-                                <span class="input-group-addon">Kg</span>
+                                <span class="input-group-addon">meters</span>
                             </div>
                         </div>
                         <div class="col-xs-6">

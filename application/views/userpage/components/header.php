@@ -26,6 +26,7 @@
                                     <a class="dropdown-item" href="/index.php/Myaccount">My account</a>
                                     <a class="dropdown-item" href="/index.php/Create_ads">Create_ad</a>
                                     <a class="dropdown-item" href="/index.php/My_ads">My ads</a>
+                                    <a class="dropdown-item" href="/index.php/Mycalendar">My calendar</a>
                                     <hr>
                                     <a class="dropdown-item" href="/index.php/First/logout">Sign Out</a>
                                 </div>

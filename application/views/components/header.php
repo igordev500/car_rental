@@ -22,6 +22,7 @@
     <link href="/assets/css/responsive/responsive.css" rel="stylesheet">
     <link href="/assets/css/others/toastr.min.css" rel="stylesheet">
     
+    <link href="/assets/dist/css/datepicker.min.css" rel="stylesheet" type="text/css">
     
     <link href="/assets/min/dropify/css/dropify.min.css" rel="stylesheet" type="text/css" />
 

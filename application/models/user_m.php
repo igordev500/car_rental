@@ -104,6 +104,77 @@ class user_m extends CI_Model{
         'name_holder'=>$Name_holder,'address_bank'=>$address));
     }
 
+    public function get_profile()
+    {
+        $email = $this->session->userdata('email');
+        $this->db->where('email',$email);
+        return $this->db->get($this->table)->row();
+    }
+
+    public function update_identity($first,$last,$phone_num,$address,$birth)
+    {
+        $email = $this->session->userdata('email');
+        $this->db->where('email',$email);
+        $this->db->update($this->table,array('first'=>$first,'last'=>$last,'phone_num'=>$phone_num,
+          'address'=>$address,'birth'=>$birth));
+    }
+
+    public function up_description($description)
+    {
+        $email = $this->session->userdata('email');
+        $this->db->where('email',$email);
+        $this->db->update($this->table,array('presentation'=>$description));
+    }
+
+    public function up_picture($upload_name)
+    {
+        $email = $this->session->userdata('email');
+        $this->db->where('email',$email);
+        $this->db->update($this->table,array('user_picture'=>$upload_name));
+    }
+
+    public function up_doc($driving,$identity)
+    {
+        $email = $this->session->userdata('email');
+        $this->db->where('email',$email);
+        $this->db->update($this->table,array('driv_doc'=>$driving,'identity'=>$identity));
+    }
+    public function up_doc1($driving)
+    {
+        $email = $this->session->userdata('email');
+        $this->db->where('email',$email);
+        $this->db->update($this->table,array('driv_doc'=>$driving));
+    }
+    public function up_doc2($identity)
+    {
+        $email = $this->session->userdata('email');
+        $this->db->where('email',$email);
+        $this->db->update($this->table,array('identity'=>$identity));
+    }
+
+    public function get_pw()
+    {
+        $email = $this->session->userdata('email');
+        $this->db->select('password');
+        $this->db->where('email',$email);
+        return $this->db->get($this->table)->row();
+    }
+
+    public function change_pw($newpw)
+    {
+        $email = $this->session->userdata('email');
+        $this->db->where('email',$email);
+        $this->db->update($this->table,array('password'=>$newpw));
+    }
+
+    public function update_bank($iban,$bic,$name_holder,$address_bank)
+    {
+        $email = $this->session->userdata('email');
+        $this->db->where('email',$email);
+        $this->db->update($this->table,array('iban'=>$iban,'bic'=>$bic,'name_holder'=>$name_holder
+        ,'address_bank'=>$address_bank));
+    }
+
 
 }
 ?>
