@@ -10,6 +10,21 @@ class First extends CI_Controller
 		parent::__construct();
 		$this->load->model('user_m');
 		$this->load->library('email');
+		
+		$config['protocol']    = 'smtp';
+        $config['smtp_host']    = 'hosting47.serverhs.org';
+        $config['smtp_port']    = '587';
+        $config['smtp_user']    = 'suporte@bananacampers.pt';
+        $config['smtp_pass']    = 'S&t7PN0KrPF&';
+        $config['charset']    = 'utf-8';
+        $config['newline']    = "\r\n";
+        $config['mailtype'] = 'html'; // or html
+        $config['validation'] = TRUE; // bool whether to validate email or not
+        
+        
+        $this->email->initialize($config);
+		
+		
 	}
 
 	public function index()
@@ -52,47 +67,61 @@ class First extends CI_Controller
 
 		if ($result=="new_email") {
 			$this->user_m->register($user);
-				// $this->email->from('Bananacampers.com', 'Bananacampers-service');
-				// $this->email->to($user['email']);
-				
-				// $this->email->subject('Welcome to register in Bananacampers.com');
-				// $this->email->message(
-				// 	'<table border="0" cellpadding="0" cellspacing="0" width="100%">
-				// 		<tr>
-				// 		<td align="center" bgcolor="#e9ecef">      
-				// 			<table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-				// 			<tr>
-				// 				<td align="left" bgcolor="#ffffff" style="padding: 36px 24px 0; font-family: Source Sans Pro, Helvetica, Arial, sans-serif; border-top: 3px solid #d4dadf;">
-				// 				<h1 style="margin: 0; font-size: 32px; font-weight: 700; letter-spacing: -1px; line-height: 48px;">Welcome to in Bananacampers.com</h1>
-				// 				</td>
-				// 			</tr>
-				// 			</table>     
-				// 		</td>
-				// 		</tr>   
-				// 		<tr>
-				// 		<td align="center" bgcolor="#e9ecef">       
-				// 			<table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-				// 			<tr>
-				// 				<td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: Source Sans Pro, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-				// 				<p style="margin: 0;">Rent and RV, camper or conversion van and travel all across Europe!</p>
-				// 				</td>
-				// 			</tr>
-				// 			<tr>
-				// 				<td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: Source Sans Pro, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-				// 					<p style="margin: 0;">Do you own an RV or camper van Rent out your RV and start earning!</p>
-				// 				</td>
-								
-				// 			</tr> 
-				// 			<tr>
-				// 				<td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: Source Sans Pro, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; border-bottom: 3px solid #d4dadf">
-				// 				<p style="margin: 0;">From Bananacampers.com</p>
-				// 				</td>
-				// 			</tr>
-				// 			</table>       
-				// 		</td>
-				// 		</tr>
-				// 	</table>');
-				// $this->email->send();
+			
+// 			$config['protocol']    = 'smtp';
+//             $config['smtp_host']    = 'hosting47.serverhs.org';
+//             $config['smtp_port']    = '587';
+//             $config['smtp_user']    = 'suporte@bananacampers.pt';
+//             $config['smtp_pass']    = 'S&t7PN0KrPF&';
+//             $config['charset']    = 'utf-8';
+//             $config['newline']    = "\r\n";
+//             $config['mailtype'] = 'html'; // or html
+//             $config['validation'] = TRUE; // bool whether to validate email or not
+            
+//              $this->email->initialize($config);
+			 $this->email->from('suporte@bananacampers.pt', 'Bananacampers.pt');
+			 $this->email->to($user['email']);
+			
+			 $this->email->subject('Welcome to register successfully in Bananacampers.pt');
+			 $this->email->message(
+			 	'<table border="0" cellpadding="0" cellspacing="0" width="100%">
+			 		<tr>
+			 		<td align="center" bgcolor="#e9ecef">      
+			 			<table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+			 			<tr>
+			 				<td align="left" bgcolor="#ffffff" style="padding: 36px 24px 0; font-family: Source Sans Pro, Helvetica, Arial, sans-serif; border-top: 3px solid #d4dadf;">
+			 				<h1 style="margin: 0; font-size: 32px; font-weight: 700; letter-spacing: -1px; line-height: 48px;">Welcome to in Bananacampers.pt</h1>
+			 				</td>
+			 			</tr>
+			 			</table>     
+			 		</td>
+			 		</tr>   
+			 		<tr>
+			 		<td align="center" bgcolor="#e9ecef">       
+			 			<table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+			 			<tr>
+			 				<td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: Source Sans Pro, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
+			 				<p style="margin: 0;">Rent and RV, camper or conversion van and travel all across Europe!</p>
+			 				</td>
+			 			</tr>
+			 			<tr>
+			 				<td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: Source Sans Pro, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
+			 					<p style="margin: 0;">Do you own an RV or camper van Rent out your RV and start earning!</p>
+			 				</td>
+							
+			 			</tr> 
+			 			<tr>
+			 				<td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: Source Sans Pro, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; border-bottom: 3px solid #d4dadf">
+			 				<p style="margin: 0;">From Bananacampers.com</p>
+			 				</td>
+						</tr>
+			 			</table>       
+			 		</td>
+			 		</tr>
+				</table>');
+			 $result = $this->email->send();
+			 $this->session->set_userdata('first',$user['first']);
+			 $this->session->set_userdata('email',$user['email']);
 			echo "pass";
 		}
 		else{
@@ -108,7 +137,7 @@ class First extends CI_Controller
 
 	function logout(){
 		$this->session->sess_destroy();
-		redirect('/');
+		redirect('http://bananacampers.pt', 'refresh'); 
 	}
 
 	function forgot_pwd(){
@@ -119,16 +148,19 @@ class First extends CI_Controller
 	}
 
 	function send_pwd(){
-		$email=$this->input->post('email');
-		$result_check_email=$this->user_m->check_email($email);
+		$to_email=$this->input->post('email');
+		$result_check_email=$this->user_m->check_email($to_email);
 
 		if($result_check_email=="yes"){
 			$code=rand();
-			$this->user_m->check_pin($email,$code);
-			$this->email->from('Bananacampers.com', 'Bananacampers-service');
-			$this->email->to($email);
+			$this->user_m->check_pin($to_email,$code);
 			
-			$this->email->subject('Bananacampers-Forgotten-password');
+		    
+            
+			$this->email->from('suporte@bananacampers.pt', 'Bananacampers.pt');
+			$this->email->to($to_email);
+			
+			$this->email->subject('suporte@bananacampers.pt:Forgotten-password');
 			$this->email->message(
 				'<table border="0" cellpadding="0" cellspacing="0" width="100%">
 					<tr>
@@ -158,7 +190,7 @@ class First extends CI_Controller
 									<table border="0" cellpadding="0" cellspacing="0">
 									<tr>
 										<td align="center" bgcolor="#1a82e2" style="border-radius: 6px;">
-										<a href="http://localhost/index.php/First/reset_pwd?code='.$code.'" target="_blank" style="display: inline-block; padding: 16px 36px; font-family: Source Sans Pro, Helvetica, Arial, sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; border-radius: 6px;">Reset Password.</a>
+										<a href="http://bananacampers.pt/index.php/First/reset_pwd?code='.$code.'" target="_blank" style="display: inline-block; padding: 16px 36px; font-family: Source Sans Pro, Helvetica, Arial, sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; border-radius: 6px;">Reset Password.</a>
 										</td>
 									</tr>
 									</table>
@@ -176,7 +208,9 @@ class First extends CI_Controller
 					</td>
 					</tr>
 				</table>');
-			if($this->email->send()){
+			
+			$result = $this->email->send();
+			if($result){
 				echo "send_ok";
 			}else{
 				echo "send_err";

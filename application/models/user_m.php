@@ -1,6 +1,6 @@
 <?php
 
-class user_m extends CI_Model{
+class User_m extends CI_Model{
     protected $table = 'user_tb';
 
     function __construct()
